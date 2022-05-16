@@ -25,6 +25,16 @@ class ProducerTest < Minitest::Test
 
     def test_empty_string_demand
         @asia.demand = ""
-        assert_raises(NoMethodError) {@asia.shortfall}
+        exception = assert_raises(NoMethodError) {@asia.shortfall}
+    end
+
+    def test_string_for_producers
+        bad_data = {
+            name: 'Asia',
+            producers: "This is not an okay place for a string",
+            demand: 30,
+            price: 20
+        }
+        assert_raises(NoMethodError) {Province.new(bad_data)}
     end
 end
