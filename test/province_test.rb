@@ -8,6 +8,6 @@ class ProvinceTest < Minitest::Test
 
   def test_province_shortfall
     asia = Province.new(sample_province_data)
-    assert_equal(7, asia.shortfall)
+    assert_equal(5, asia.shortfall)
   end
 end
